@@ -1,10 +1,12 @@
 
-const initialState = {week: 0}
+const initialState = {week: 5}
 
 export const rootReducer = (state = initialState, action)=> {
-	if(action.type==="INCREMENT"){
-		return Object.assign({}, state, {week: state.week + 1})
+	switch(action.type){
+		case "INCREMENT": return (Object.assign({}, state, {week: state.week + 1}))
+		case "TO_ONE": return (Object.assign({}, state, {week: state.week - 4}))
+		default: return state
 	}
 	
-	else {return state}
+	
 }
