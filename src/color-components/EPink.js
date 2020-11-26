@@ -3,7 +3,7 @@ import  { styles } from '../stylesheet/stylesheet'
 import { css } from 'aphrodite'
 
 
-export const Pink = (props) => (
+export const Pink = (props) =>(
 	<div className= {css(styles.discountBackground)}>
 		<div className= {css(styles.discountHeader)}>Discounts {props.children}</div>
 		<div className= {css(styles.highlightBlue)}>50% OFF Blue</div>

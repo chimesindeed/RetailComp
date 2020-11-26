@@ -2,7 +2,7 @@ import React from 'react'
 import { styles } from '../stylesheet/stylesheet'
 import { css } from 'aphrodite'
 
-export const Yellow = (props) => (
+export const Yellow = (props) =>(
 	<div className= {css(styles.discountBackground)}>
 		<div className= {css(styles.discountHeader)}>Discounts {props.children}</div>
 		<div className= {css(styles.highlightWhite)}>50% OFF White</div>

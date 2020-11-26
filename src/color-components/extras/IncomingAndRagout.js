@@ -1,7 +1,7 @@
 import React from 'react'
 import { styles } from '../../stylesheet/stylesheet'
 import { css } from 'aphrodite'
-export const IncomingYellow = () => (
+export const IncomingYellow = () =>(
 	<div className={css(styles.incomingText)}> || ic yellow, r/o green, nw r/o blue</div>
 )
 export const IncomingGreen = () => (
