@@ -3,12 +3,13 @@ import { StyleSheet } from 'aphrodite'
 export const styles = StyleSheet.create({
 
 	background: {
-		paddingTop: 30,
-		padding: 2,
-		paddingTop: 15,
-		backgroundColor: '#cacecb',
+	
+		paddingTop: 2,
+		paddingBottom: 8,
+		backgroundColor: 'maroon',
 		borderWidth: 4,
 		borderColor: '#6f7170',
+		lineHeight: 2.3,
 	},
 	body: {
 		backgroundColor: 'beige'
@@ -28,27 +29,27 @@ export const styles = StyleSheet.create({
 		letterSpacing: 5,
 	},
 	discountFiller: {
-		backgroundColor: '#004e7c',
-		padding: 3
+		backgroundColor: 'teal',
+		padding: 1
 	},
 	discountBackground: {
-		backgroundColor: '#004e7c',
+		backgroundColor: 'black',
 		paddingBottom: 15
 	},
 	discountHeader: {
 		color: 'white',
 		fontWeight: '600',
-		fontSize: 25,
-		lineHeight: 27,
+		fontSize: 30,
+		lineHeight: 1.8,
 		letterSpacing: 2,
 		paddingBottom: 15,
 		textAlign: 'left'
 	},
 	highlightBlue: {
-	color: 'grey',
+	color: 'blue',
 	fontWeight: '700',
-	fontSize: 15,
-	lineHeight: 29,
+	fontSize: 20,
+	lineHeight: 3,
 	letterSpacing:3 ,
 	borderWidth: 1,
 	borderColor: 'grey',
@@ -57,8 +58,8 @@ export const styles = StyleSheet.create({
 	highlightGreen: {
 	color: 'green',
 	fontWeight: '700',
-	fontSize: 15,
-	lineHeight: 29,
+	fontSize: 20,
+	lineHeight: 3,
 	letterSpacing:3 ,
 	borderWidth: 1,
 	borderColor: 'green',
@@ -67,8 +68,8 @@ export const styles = StyleSheet.create({
 	highlightYellow: {
 	color: 'yellow',
 	fontWeight: '700',
-	fontSize: 15,
-	lineHeight: 29,
+	fontSize: 20,
+	lineHeight: 3,
 	letterSpacing:3 ,
 	borderWidth: 1,
 	borderColor: 'yellow',
@@ -77,8 +78,8 @@ export const styles = StyleSheet.create({
 	highlightPink: {
 	color: 'pink',
 	fontWeight: '700',
-	fontSize: 15,
-	lineHeight: 29,
+	fontSize: 20,
+	lineHeight: 3,
 	letterSpacing:3 ,
 	borderWidth: 1,
 	borderColor: 'pink',
@@ -87,8 +88,8 @@ export const styles = StyleSheet.create({
 	highlightWhite: {
 	color: 'white',
 	fontWeight: '700',
-	fontSize: 15,
-	lineHeight: 29,
+	fontSize: 20,
+	lineHeight: 3,
 	letterSpacing:3 ,
 	borderWidth: 1,
 	borderColor: 'white',
@@ -96,7 +97,7 @@ export const styles = StyleSheet.create({
 	},
 	incomingText: {
 		color: 'red',
-		fontSize: 9
+		fontSize: 14
 	},
 	sectionContainer: {
 		marginTop: 32,
@@ -114,10 +115,9 @@ export const styles = StyleSheet.create({
 		color: 'black',
 	},
 	text: {
-		fontSize: 33,
+		fontSize: 60,
 		fontWeight: '600',
-		textAlign: 'left',
-		color: '#69bedd',
+		color: 'skyblue',
 		letterSpacing: 1,
 		textAlign: 'center'
 	},
