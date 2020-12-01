@@ -10,7 +10,7 @@ import {Blue} from './color-components/CBlue'
 import {White} from './color-components/DWhite'
 import * as Extras from './color-components/extras/IncomingAndRagout'
 
-class MainContainer extends React.Component {
+class DiscountsContainer extends React.Component {
 	constructor(props){
 		super(props)
 	}
@@ -73,4 +73,4 @@ class MainContainer extends React.Component {
 
 const mapStateToProps=(state)=>{ return ({week: state.week}) }
 
-export default connect(mapStateToProps, {INCREMENT, TO_ONE})(MainContainer)
+export default connect(mapStateToProps, {INCREMENT, TO_ONE})(DiscountsContainer)

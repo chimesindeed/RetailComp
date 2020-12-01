@@ -1,12 +1,12 @@
 import React from 'react'
 import Header from './Header'
-import MainContainer from './MainContainer'
+import DiscountsContainer from './DiscountsContainer'
 
 const App = () => {
   return (
     <div>
     	<Header />
-     	<MainContainer />
+     	<DiscountsContainer />
     </div>
     )
 }
