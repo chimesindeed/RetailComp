@@ -12,10 +12,11 @@ class StoresContainer extends React.Component {
 	}
 	
 	render = () => {
-		const arr=[{title: "title"}, {title: "title2"}]
-		return (this.props.allStores.map(el=><li>{el.store_title}</li>))
+		return (this.props.allStores.map((store)=>{return<Store title={store.store_title} id={store.id}/>}))
 
-	}}
+	}
+
+}
 
 	const mapStateToProps = (state) => {
 		return ({allStores: state.stores})
