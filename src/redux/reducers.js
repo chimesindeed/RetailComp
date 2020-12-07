@@ -1,4 +1,5 @@
 
+
 const initialState = {week: 5, stores: []}
 
 export const rootReducer = (state = initialState, action)=> {

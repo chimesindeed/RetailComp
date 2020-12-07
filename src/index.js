@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Header from './Header'
 import { reduxStore } from './redux/store'
 import { Provider } from 'react-redux'
-
 
 ReactDOM.render(
     <Provider store ={reduxStore}>

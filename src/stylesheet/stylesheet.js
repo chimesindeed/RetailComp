@@ -124,7 +124,6 @@ export const styles = StyleSheet.create({
 	text2: {
 		fontSize: 10,
 		fontWeight: '600',
-		textAlign: 'left',
 		color: 'green',
 		letterSpacing: 1,
 		textAlign: 'center'
