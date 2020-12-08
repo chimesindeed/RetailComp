@@ -15,20 +15,18 @@ ActiveRecord::Schema.define(version: 2) do
   create_table "notes", force: :cascade do |t|
     t.string "note_title"
     t.text "note_body"
+    t.integer "store_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "stores", force: :cascade do |t|
-    t.integer "store_number"
-    t.string "store_nickname"
-    t.string "address1"
-    t.string "address2"
+    t.integer "number"
+    t.string "name"
+    t.string "address"
     t.string "city"
     t.string "state"
-    t.integer "zip_code"
-    t.integer "phone_number"
-    t.string "store_manager"
+    t.integer "zip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
