@@ -12,7 +12,15 @@ class StoresContainer extends React.Component {
 	}
 	
 	render = () => {
-		return (this.props.allStores.map((store)=>{return<Store title={store.store_title} id={store.id}/>}))
+		return (this.props.allStores.map((store)=>{
+			return<Store
+					id={store.id}
+					number={store.number}
+					name={store.name}
+					address={store.address}
+					city={store.city}
+					state={store.state}
+					zip={store.zip}/>}))
 
 	}
 
