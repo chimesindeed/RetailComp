@@ -1,6 +1,6 @@
  
 import React from 'react'
-import { styles } from  './stylesheet/stylesheet'
+import { styles } from  './stylesheet/stylesheet-general'
 import { css } from 'aphrodite'
 
 const Header = () => {
