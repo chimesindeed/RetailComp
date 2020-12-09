@@ -1,6 +1,8 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { css } from 'aphrodite'
+import { styles } from  './stylesheet/stylesheet-stores.js'
 import Store from './Store'
 import { asyncFetchStores } from './redux/actions'
 
@@ -15,7 +17,7 @@ class StoresContainer extends React.Component {
 	render = () => {
 		return (
 			<div>
-				<li><Link to={"/discounts"}>DISCOUNTS</Link></li>
+				<div className={css(styles.discountsLink)}><Link to={"/discounts"}>DISCOUNTS</Link></div>
 				{
 					this.props.allStores.map((store)=>{
 						return (
