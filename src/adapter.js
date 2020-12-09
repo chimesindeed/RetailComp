@@ -1,9 +1,17 @@
 
 
 export async function getStores(){
-	let abc = null;
-	let x = null;
-	abc = await fetch('http://localhost:3001/stores')
-	x = await abc.json()
-	return x
+	let stores;
+	let storesAsJSON;
+	stores = await fetch('http://localhost:3001/stores')
+	storesAsJSON = await stores.json()
+	return storesAsJSON
+}
+
+export async function getStore(id){
+	let store;
+	let storeAsJSON;
+	store = await fetch(`http://localhost:3001/stores/${id}`)
+	storeAsJSON = await store.json()
+	return storeAsJSON
 }
