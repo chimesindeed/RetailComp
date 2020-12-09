@@ -15,9 +15,9 @@ const App = (props) => {
   				<Redirect to = "/discounts"/>
   			</Route>
 
-    		<Route path= "/discounts" exact component= {DiscountsContainer} />
+    		<Route path= "/discounts" exact component={DiscountsContainer}/>
     		
-    		<Route path= "/stores" exact component= {StoresContainer} />
+    		<Route path= "/stores" exact component={StoresContainer}/>
 		</Switch>    
     </BrowserRouter>
     )

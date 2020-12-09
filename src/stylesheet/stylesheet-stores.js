@@ -9,7 +9,9 @@ export const styles = StyleSheet.create({
 	},
 
 	discountsLink: {
-		textAlign: 'right'
+		textAlign: 'right',
+		backgroundColor: 'maroon',
+		color: 'white'
 
 	},
 });

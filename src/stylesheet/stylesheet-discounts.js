@@ -72,5 +72,10 @@ discountFiller: {
 		color: 'red',
 		fontSize: 14
 	},
+	storesLink: {
+		textAlign: 'right',
+		backgroundColor: 'maroon'
+
+	},
 	
 })

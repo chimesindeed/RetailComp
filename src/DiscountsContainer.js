@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { css } from 'aphrodite'
+import { styles } from  './stylesheet/stylesheet-discounts.js'
 import { INCREMENT, TO_ONE } from './redux/actions'
 import { Link } from 'react-router-dom'
 import * as Util from './util/util'
@@ -43,7 +45,7 @@ class DiscountsContainer extends React.Component {
 	render = () => {
 		return(
 			<div>
-				<li><Link to={"/stores"}>STORES</Link></li>,
+				<div className={css(styles.storesLink)}><Link to={"/stores"}>STORES</Link></div>
 				{
 					(()=>{
 						switch(this.props.week){
