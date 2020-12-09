@@ -17,3 +17,13 @@ export const asyncFetchStores = () => {
 		)
 	}
 }
+
+export const GET_STORE = (data) => {return ({type: "GET_STORE", payload: data}) }
+
+export const asyncFetchStore = (id) => {
+	return function(dispatch){
+		return ADAPTER.getStore(id).then(
+			(response) => dispatch(GET_STORE(response))
+		)
+	}
+}
