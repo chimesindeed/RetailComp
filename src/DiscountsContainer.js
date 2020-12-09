@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { INCREMENT, TO_ONE } from './redux/actions'
+import { Link } from 'react-router-dom'
 import * as Util from './util/util'
 import Discounts from './Discounts'
 import {Pink} from './color-components/EPink'
@@ -13,6 +14,9 @@ import * as Extras from './color-components/extras/IncomingAndRagout'
 class DiscountsContainer extends React.Component {
 	constructor(props){
 		super(props)
+	}
+	navigateToStores = () =>{
+		
 	}
 
 	setWeek = (dPassed = Util.daysPassed()) => {
@@ -37,37 +41,45 @@ class DiscountsContainer extends React.Component {
 		return this.setWeek()
 	}
 	render = () => {
-		switch(this.props.week){
-			case 5: return(
-				<Discounts>
-					<Pink><Extras.IncomingPink/></Pink>
-				</Discounts>
-			)
-			case 1: return(
-				<Discounts>
-					<Yellow><Extras.IncomingYellow/></Yellow>
-				</Discounts>
-			)
-			case 2: return(
-				<Discounts>
-					<Green><Extras.IncomingGreen/></Green>
-				</Discounts>
-			)
-			case 3: return(
-				<Discounts>
-					<Blue><Extras.IncomingBlue/></Blue>
-				</Discounts>
-			)
-			case 4: return(
-				<Discounts>
-					<White><Extras.IncomingWhite/></White>
-				</Discounts>
-			)
-			default: return(
-				<h1>default</h1>
-			)
-
-		}
+		return(
+			<div>
+				<li><Link to={"/stores"}>STORES</Link></li>,
+				{
+					(()=>{
+						switch(this.props.week){
+							case 5: return(
+								<Discounts>
+									<Pink><Extras.IncomingPink/></Pink>
+								</Discounts>
+							)
+							case 1: return(
+								<Discounts>
+									<Yellow><Extras.IncomingYellow/></Yellow>
+								</Discounts>
+							)
+							case 2: return(
+								<Discounts>
+									<Green><Extras.IncomingGreen/></Green>
+								</Discounts>
+							)
+							case 3: return(
+								<Discounts>
+									<Blue><Extras.IncomingBlue/></Blue>
+								</Discounts>
+							)
+							case 4: return(
+								<Discounts>
+									<White><Extras.IncomingWhite/></White>
+								</Discounts>
+							)
+							default: return(
+								<h1>default</h1>
+							)
+						}
+					})()
+				}
+			</div>
+		)
 	}
 }
 
