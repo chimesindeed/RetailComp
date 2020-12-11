@@ -42,44 +42,44 @@ class DiscountsContainer extends React.Component {
 	componentDidMount = () => {
 		return this.setWeek()
 	}
+	renderDiscounts = (week) => {
+		 switch(week){
+			case 5: return(
+				<Discounts>
+					<Pink><Extras.IncomingPink/></Pink>
+				</Discounts>
+			)
+			case 1: return(
+				<Discounts>
+					<Yellow><Extras.IncomingYellow/></Yellow>
+				</Discounts>
+			)
+			case 2: return(
+				<Discounts>
+					<Green><Extras.IncomingGreen/></Green>
+				</Discounts>
+			)
+			case 3: return(
+				<Discounts>
+					<Blue><Extras.IncomingBlue/></Blue>
+				</Discounts>
+			)
+			case 4: return(
+				<Discounts>
+					<White><Extras.IncomingWhite/></White>
+				</Discounts>
+			)
+			default: return(
+				<h1>default</h1>
+			)
+		}
+		
+	}
 	render = () => {
 		return(
 			<div>
 				<div className={css(styles.storesLink)}><Link to={"/stores"}>STORES</Link></div>
-				{
-					(()=>{
-						switch(this.props.week){
-							case 5: return(
-								<Discounts>
-									<Pink><Extras.IncomingPink/></Pink>
-								</Discounts>
-							)
-							case 1: return(
-								<Discounts>
-									<Yellow><Extras.IncomingYellow/></Yellow>
-								</Discounts>
-							)
-							case 2: return(
-								<Discounts>
-									<Green><Extras.IncomingGreen/></Green>
-								</Discounts>
-							)
-							case 3: return(
-								<Discounts>
-									<Blue><Extras.IncomingBlue/></Blue>
-								</Discounts>
-							)
-							case 4: return(
-								<Discounts>
-									<White><Extras.IncomingWhite/></White>
-								</Discounts>
-							)
-							default: return(
-								<h1>default</h1>
-							)
-						}
-					})()
-				}
+				{this.renderDiscounts(this.props.week)}
 			</div>
 		)
 	}
