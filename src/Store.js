@@ -11,7 +11,6 @@ const Store = (props) => {
 			<li>City: {props.city}</li>
 			<li>State: {props.state}</li>
 			<li>Zip: {props.zip}</li>
-			<div><button>update</button><button>delete</button></div>
 		</div>
 		
 
