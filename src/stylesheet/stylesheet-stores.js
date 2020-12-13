@@ -9,18 +9,36 @@ export const styles = StyleSheet.create({
 
 	},
 
-	storesBackground: {
-		backgroundColor: 'blue',
-		color: 'white',
-		paddingLeft: 20
+	stores: {
+		backgroundColor: 'lightgreen',
+		color: 'black',
+		paddingLeft: 20,
+		overflow: 'hidden',
+		overflowY: 'scroll',
+		overflowStyle: 'scrollbar'
 	},
 
-	storeBackground: {
+	store: {
+		backgroundColor: 'coral',
+		color: 'blue',
+		textAlign: 'center',
+	},
+
+	updateForm: {
+		backgroundColor: 'coral',
+		color: 'blue',
 		textAlign: 'center'
 	},
 
 	optionsDiv: {
 		display: 'flex',
 		justifyContent: 'center'
+	},
+
+	storeDivider: {
+		width: '300px',
+		height: '2px',
+		color: 'grey'
 	}
+
 });

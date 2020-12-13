@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { css } from 'aphrodite'
 import { styles } from  './stylesheet/stylesheet-stores.js'
 import Store from './Store'
-import UpdateStoreForm from './UpdateStore'
+import UpdateStoreForm from './UpdateStoreForm'
 import { asyncFetchStores, asyncFetchStore } from './redux/actions'
 import { deleteStore } from './adapter.js'
 
@@ -41,8 +41,8 @@ class StoresContainer extends React.Component {
 			switch(this.state.toggle){
 				case "allStores": return (this.props.allStores.map((store)=>{
 					return(
-						<div key={store.id} onClick={this.selectStore(store.id)}>
-							<Store className={css(styles.storesBackground)}
+						<div key={store.id} onDoubleClick={this.selectStore(store.id)}>
+							<Store className={css(styles.stores)}
 								id={store.id}
 								number={store.number}
 								name={store.name}
@@ -51,13 +51,14 @@ class StoresContainer extends React.Component {
 								state={store.state}
 								zip={store.zip}
 							/>
+							<div className={css(styles.storeDivider)} />
 						</div>
 							)
 					})
 				);	
 				case "clickedStore": return (
 					<div>
-						<Store className={css(styles.storesBackground, styles.storeBackground)}
+						<Store className={css(styles.store)}
 							id={this.props.selectedStore.id}
 							number={this.props.selectedStore.number}
 							name={this.props.selectedStore.name}
@@ -76,7 +77,7 @@ class StoresContainer extends React.Component {
 
 				case "updateStore": return (
 					<div>
-						<UpdateStoreForm className={css(styles.storesBackground, styles.storeBackground)}
+						<UpdateStoreForm className={css(styles.updateForm)}
 							id={this.props.selectedStore.id}
 							number={this.props.selectedStore.number}
 							name={this.props.selectedStore.name}
