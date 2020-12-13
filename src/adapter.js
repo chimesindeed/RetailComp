@@ -25,4 +25,25 @@ export async function deleteStore(id){
 		}
 	})
 }
+
+export async function updateStore(id, name, number, address, city, state, zip){
+	const store = {
+		id: id,
+		name: name,
+		address: address,
+		city: city,
+		state: state,
+		zip: zip
+	}
+	await fetch(storeURL(id),{
+		method: 'patch',
+		headers: {
+			'Content-type': 'application/json'
+		},
+
+		body: JSON.stringify({store})
+    
+    }).then(res => res.json())
+	}
+
 //______________________________________________________________________________

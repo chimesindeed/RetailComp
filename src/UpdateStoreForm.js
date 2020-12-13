@@ -1,6 +1,4 @@
 import React from 'react'
-import { css } from 'aphrodite'
-import { styles } from  './stylesheet/stylesheet-stores.js'
 
 const handleSubmit = (e) => {
 	e.preventDefault()
