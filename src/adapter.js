@@ -18,8 +18,7 @@ export async function getStore(id){
 }
 //______________________________________________________________________________
 export async function deleteStore(id){
-	let store;
-	store = await fetch(storeURL(id),{
+	await fetch(storeURL(id),{
 		method: 'delete',
 		headers: {
 			'Content-type': 'application/json'
