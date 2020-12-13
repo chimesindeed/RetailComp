@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { css } from 'aphrodite'
 import { styles } from  './stylesheet/stylesheet-stores.js'
 import Store from './Store'
+import UpdateStoreForm from './UpdateStore'
 import { asyncFetchStores, asyncFetchStore } from './redux/actions'
 import { deleteStore } from './adapter.js'
 
@@ -28,8 +29,11 @@ class StoresContainer extends React.Component {
 	}
 	handleDeletePressed = () => {
 		deleteStore(this.props.selectedStore.id)
-		.then(this.props.asyncFetchStores	)
+		.then(this.props.asyncFetchStores)
 		.then(this.setState({toggle: "allStores"}))
+	}
+	handleUpdatePressed = () => {
+		this.setState({toggle: "updateStore"})
 	}
 
 		renderStores = () => {
@@ -65,7 +69,24 @@ class StoresContainer extends React.Component {
 						<div className={css(styles.optionsDiv)}>
 							<button onClick={this.handleBackPressed}>back</button>
 							<button onClick={this.handleDeletePressed}>delete</button>
-							<button onClick={this.handleBackPressed}>update</button>
+							<button onClick={this.handleUpdatePressed}>update</button>
+						</div>
+					</div>
+				)
+
+				case "updateStore": return (
+					<div>
+						<UpdateStoreForm className={css(styles.storesBackground, styles.storeBackground)}
+							id={this.props.selectedStore.id}
+							number={this.props.selectedStore.number}
+							name={this.props.selectedStore.name}
+							address={this.props.selectedStore.address}
+							city={this.props.selectedStore.city}
+							state={this.props.selectedStore.state}
+							zip={this.props.selectedStore.zip}
+						/>
+						<div className={css(styles.optionsDiv)}>
+								<button onClick={this.handleBackPressed}>back</button>
 						</div>
 					</div>
 				)
