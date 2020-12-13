@@ -4,13 +4,13 @@ import { styles } from  './stylesheet/stylesheet-stores.js'
 
 const Store = (props) => {
 	return (
-		<div className= {(css(styles.storeBackground))}>
-			<li>Store Name: {props.name}</li>
-			<li>Store Number: {props.number}</li>
-			<li>Address: {props.address}</li>
-			<li>City: {props.city}</li>
-			<li>State: {props.state}</li>
-			<li>Zip: {props.zip}</li>
+		<div className= {props.className}>
+			<h2>{props.name}</h2>
+			<h3>Store Number: {props.number}</h3>
+			<h3>Address: {props.address}</h3>
+			<h3>City: {props.city}</h3>
+			<h3>State: {props.state}</h3>
+			<h3>Zip: {props.zip}</h3>
 		</div>
 		
 
