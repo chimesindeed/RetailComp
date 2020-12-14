@@ -18,7 +18,8 @@ class StoresController < ApplicationController
 	end
 
 	def update
-		store = Store.find(params[:id])
+		binding.pry
+		store = Store.update(store_params)
 
 		render json: store
 	end
