@@ -32,7 +32,7 @@ class StoresContainer extends React.Component {
 		.then(this.props.asyncFetchStores)
 		.then(this.setState({toggle: "allStores"}))
 	}
-	handleUpdatePressed = () => {
+	handleEditPressed = () => {
 		this.setState({toggle: "updateStore"})
 	}
 
@@ -70,7 +70,7 @@ class StoresContainer extends React.Component {
 						<div className={css(styles.optionsDiv)}>
 							<button onClick={this.handleBackPressed}>back</button>
 							<button onClick={this.handleDeletePressed}>delete</button>
-							<button onClick={this.handleUpdatePressed}>update</button>
+							<button onClick={this.handleEditPressed}>edit</button>
 						</div>
 					</div>
 				)
