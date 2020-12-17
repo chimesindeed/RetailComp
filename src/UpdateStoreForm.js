@@ -1,5 +1,7 @@
 import React from 'react'
 import * as ADAPTER from './adapter.js'
+import { connect } from 'react-redux'
+import { GET_STORE } from './redux/actions'
 
 class UpdateStoreForm extends React.Component{
 	constructor(props){
@@ -29,7 +31,7 @@ class UpdateStoreForm extends React.Component{
 				city,
 				state,
 				zip
-			).then(data=>{console.log(data)})
+			).then(res=>{this.props.GET_STORE(res)})
 			
 		)
 
@@ -51,4 +53,7 @@ class UpdateStoreForm extends React.Component{
 		)
 	}
 }
-export default UpdateStoreForm
+const mapStateToProps = (state) => {
+	return({store: state.store})
+}
+export default connect(mapStateToProps, { GET_STORE })(UpdateStoreForm)
