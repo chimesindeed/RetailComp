@@ -27,3 +27,12 @@ export const asyncFetchStore = (id) => {
 		)
 	}
 }
+
+export const ALL_STORES = () => {return ({type: "ALL_STORES"}) }
+export const SELECTED_STORE = () => {return ({type: "SELECTED_STORE"}) }
+export const UPDATE_STORE = () => {return ({type: "UPDATE_STORE"})}
+// export const asyncUpdateStore = (id, name, address, street, state, zip) => {
+// 	return function(dispatch){
+// 		return ADAPTER.updateStore
+// 	}
+// }
