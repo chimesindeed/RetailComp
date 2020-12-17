@@ -25,8 +25,8 @@ export async function deleteStore(id){
 		}
 	})
 }
-
-export async function updateStore(id, name, number, address, city, state, zip){
+//______________________________________________________________________________
+export async function updateStore(id, name, address, city, state, zip){
 	const store = {
 		id: id,
 		name: name,
@@ -35,15 +35,20 @@ export async function updateStore(id, name, number, address, city, state, zip){
 		state: state,
 		zip: zip
 	}
-	await fetch(storeURL(id),{
-		method: 'patch',
+	let updatedStore;
+	let updatedStoreAsJSON;
+	updatedStore = await fetch(storeURL(id),{
+		method: 'put',
 		headers: {
 			'Content-type': 'application/json'
 		},
 
 		body: JSON.stringify({store})
     
-    }).then(res => res.json())
+    })
+   	updatedStoreAsJSON = await updatedStore.json()
+	return updatedStoreAsJSON
+    	
 	}
 
 //______________________________________________________________________________

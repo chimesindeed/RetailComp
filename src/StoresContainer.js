@@ -5,40 +5,36 @@ import { css } from 'aphrodite'
 import { styles } from  './stylesheet/stylesheet-stores.js'
 import Store from './Store'
 import UpdateStoreForm from './UpdateStoreForm'
-import { asyncFetchStores, asyncFetchStore } from './redux/actions'
+import { asyncFetchStores, asyncFetchStore, ALL_STORES, SELECTED_STORE, UPDATE_STORE } from './redux/actions'
 import { deleteStore } from './adapter.js'
 
 class StoresContainer extends React.Component {
-	constructor(props){
-		super(props)
-		this.state = {
-			toggle: "allStores"
-		}
-	}
+
 	componentDidMount = () => {
 		this.props.asyncFetchStores();
 	}
 
 	selectStore = value => () => {
 		this.props.asyncFetchStore(value);
-		this.setState({toggle: "clickedStore"})
+		this.props.SELECTED_STORE()
 	}
 	
 	handleBackPressed = () => {
-		this.setState({toggle: "allStores"})
+		this.props.asyncFetchStores();
+		this.props.ALL_STORES()
 	}
 	handleDeletePressed = () => {
 		deleteStore(this.props.selectedStore.id)
 		.then(this.props.asyncFetchStores)
-		.then(this.setState({toggle: "allStores"}))
+		.then(this.props.ALL_STORES())
 	}
 	handleEditPressed = () => {
-		this.setState({toggle: "updateStore"})
+		this.props.UPDATE_STORE()
 	}
 
 		renderStores = () => {
 			
-			switch(this.state.toggle){
+			switch(this.props.toggle){
 				case "allStores": return (this.props.allStores.map((store)=>{
 					return(
 						<div key={store.id} onDoubleClick={this.selectStore(store.id)}>
@@ -112,6 +108,22 @@ class StoresContainer extends React.Component {
 }
 
 	const mapStateToProps = (state) => {
-		return ({allStores: state.stores, selectedStore: state.store})
+		return ({
+			allStores: state.stores,
+			selectedStore: state.store,
+			toggle: state.toggle
+		})
 	}
-export default connect(mapStateToProps, {asyncFetchStores, asyncFetchStore})(StoresContainer)
+export default connect(mapStateToProps,
+	{
+		asyncFetchStores,
+
+		asyncFetchStore,
+
+		ALL_STORES,
+
+		SELECTED_STORE,
+
+		UPDATE_STORE
+
+	})(StoresContainer)

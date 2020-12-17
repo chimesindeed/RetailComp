@@ -1,7 +1,10 @@
 import React from 'react'
+import { css } from 'aphrodite'
+import { styles } from  './stylesheet/stylesheet-discounts.js'
 import * as ADAPTER from './adapter.js'
 import { connect } from 'react-redux'
-import { GET_STORE } from './redux/actions'
+import { GET_STORE, SELECTED_STORE } from './redux/actions'
+import Store from './Store'
 
 class UpdateStoreForm extends React.Component{
 	constructor(props){
@@ -11,7 +14,8 @@ class UpdateStoreForm extends React.Component{
 			address: null,
 			city: null,
 			state: null,
-			zip: null
+			zip: null,
+			editedYet: false
 		}
 	}
 	
@@ -31,14 +35,17 @@ class UpdateStoreForm extends React.Component{
 				city,
 				state,
 				zip
-			).then(res=>{this.props.GET_STORE(res)})
 			
+			).then(res=>{this.props.GET_STORE(res)})
+			.then(this.props.SELECTED_STORE())
+
 		)
 
 	}
 		
 	render = () => {
-		return (
+		return(
+		
 			<div className= {this.props.className}>
 				<form onSubmit={this.handleSubmit} style={{justifyContent: 'left'}}>
 <h2><label>Store Name <input onChange={(e)=>{this.setState({name: e.target.value})}} placeholder={this.props.name}/></label></h2>
@@ -50,10 +57,8 @@ class UpdateStoreForm extends React.Component{
 					<input type='submit' value='Update Store'/>
 				</form>
 			</div>
-		)
+			  )
 	}
 }
-const mapStateToProps = (state) => {
-	return({store: state.store})
-}
-export default connect(mapStateToProps, { GET_STORE })(UpdateStoreForm)
+
+export default connect(null, { GET_STORE, SELECTED_STORE })(UpdateStoreForm)
