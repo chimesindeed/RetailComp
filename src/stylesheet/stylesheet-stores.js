@@ -37,8 +37,7 @@ export const styles = StyleSheet.create({
 
 	storeDivider: {
 		width: '300px',
-		height: '2px',
-		color: 'grey'
+		height: '10px',
 	}
 
 });

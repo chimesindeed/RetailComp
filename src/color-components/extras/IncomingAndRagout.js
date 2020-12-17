@@ -1,6 +1,7 @@
 import React from 'react'
 import { styles } from '../../stylesheet/stylesheet-discounts'
 import { css } from 'aphrodite'
+
 export const IncomingYellow = () =>(
 	<div className={css(styles.incomingText)}> || ic yellow, r/o green, nw r/o blue</div>
 )
