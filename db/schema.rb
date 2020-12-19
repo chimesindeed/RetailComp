@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2) do
   end
 
   create_table "stores", force: :cascade do |t|
-    t.integer "number"
     t.string "name"
+    t.integer "number"
     t.string "address"
     t.string "city"
     t.string "state"
