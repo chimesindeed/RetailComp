@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2) do
 
   create_table "notes", force: :cascade do |t|
-    t.string "note_title"
     t.text "note_body"
     t.integer "store_id"
     t.datetime "created_at", precision: 6, null: false
