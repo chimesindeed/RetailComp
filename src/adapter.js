@@ -25,8 +25,6 @@ export async function deleteStore(id){
 		}
 	})
 }
-
-
 //______________________________________________________________________________
 export async function updateStore(id, name, address, city, state, zip){
 	const store = {
@@ -65,7 +63,7 @@ export async function createStore(name, number, address, city, state, zip){
 	}
 	let createdStore;
 	let createdStoreAsJSON;
-	createdStore = await fetch(storesURL(),{
+	createdStore = await fetch(storesURL,{
 		method: 'post',
 		headers: {
 			'Content-type': 'application/json'

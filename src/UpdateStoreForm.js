@@ -1,10 +1,7 @@
 import React from 'react'
-import { css } from 'aphrodite'
-import { styles } from  './stylesheet/stylesheet-discounts.js'
 import * as ADAPTER from './adapter.js'
 import { connect } from 'react-redux'
 import { GET_STORE, SELECTED_STORE } from './redux/actions'
-import Store from './Store'
 
 class UpdateStoreForm extends React.Component{
 	constructor(props){
@@ -51,7 +48,7 @@ class UpdateStoreForm extends React.Component{
 <h2><label>Store Name <input onChange={(e)=>{this.setState({name: e.target.value})}} placeholder={this.props.name}/></label></h2>
 <h3><label>Store Number <input placeholder={this.props.number} disabled/></label></h3> 
 <h3><label>Store Address <input onChange={(e)=>{this.setState({address: e.target.value})}}placeholder={this.props.address}/></label></h3>
-<h3><label>Store City <input onChange={(e)=>{this.setState({street: e.target.value})}}placeholder={this.props.city}/></label></h3>
+<h3><label>Store City <input onChange={(e)=>{this.setState({city: e.target.value})}}placeholder={this.props.city}/></label></h3>
 <h3><label>Store State <input onChange={(e)=>{this.setState({state: e.target.value})}}placeholder={this.props.state}/></label></h3>
 <h3><label>Store Zip <input onChange={(e)=>{this.setState({zip: e.target.value})}}placeholder={this.props.zip}/></label></h3>
 					<input type='submit' value='Update Store'/>

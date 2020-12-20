@@ -1,4 +1,4 @@
-import * as ADAPTER from '../adapter.js'
+	import * as ADAPTER from '../adapter.js'
 
 export const INCREMENT = () => {
 	return ({type: "INCREMENT"})

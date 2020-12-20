@@ -46,12 +46,12 @@ class CreateStoreForm extends React.Component{
 		
 			<div>
 				<form onSubmit={this.handleSubmit} style={{justifyContent: 'left'}}>
-<h2><label>Store Name <input onChange={(e)=>{this.setState({name: e.target.value})}}/>		</label></h2>
-<h3><label>Store Number <input onChange={(e)=>{this.setState({name: e.target.value})}}/>	</label></h3> 
-<h3><label>Store Address <input onChange={(e)=>{this.setState({address: e.target.value})}}/></label></h3>
-<h3><label>Store City <input onChange={(e)=>{this.setState({street: e.target.value})}}/>	</label></h3>
-<h3><label>Store State <input onChange={(e)=>{this.setState({state: e.target.value})}}/>	</label></h3>
-<h3><label>Store Zip <input onChange={(e)=>{this.setState({zip: e.target.value})}}/>		</label></h3>
+<h2>Store Name <input onChange={(e)=>{this.setState({name: e.target.value})}}/></h2>
+<h3>Store Number <input onChange={(e)=>{this.setState({number: e.target.value})}}/></h3> 
+<h3>Store Address <input onChange={(e)=>{this.setState({address: e.target.value})}}/></h3>
+<h3>Store City <input onChange={(e)=>{this.setState({city: e.target.value})}}/></h3>
+<h3>Store State <input onChange={(e)=>{this.setState({state: e.target.value})}}/></h3>
+<h3>Store Zip <input onChange={(e)=>{this.setState({zip: e.target.value})}}/></h3>
 					<input type='submit' value='Create Store'/>
 				</form>
 			</div>

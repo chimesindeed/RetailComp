@@ -36,6 +36,9 @@ class StoresContainer extends React.Component {
 		this.props.UPDATE_STORE()
 	}
 
+	handleShowNotes = value =>() => {
+
+	}
 		renderStores = () => {
 			
 			switch(this.props.toggle){
@@ -72,6 +75,7 @@ class StoresContainer extends React.Component {
 							state={this.props.selectedStore.state}
 							zip={this.props.selectedStore.zip}
 						/>
+						<button onClick={this.handleShowNotes(this.props.selectedStore.id)}>Store Notes</button>
 					</div>
 				)
 
