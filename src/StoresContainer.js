@@ -23,6 +23,10 @@ class StoresContainer extends React.Component {
 		this.props.asyncFetchStores();
 		this.props.ALL_STORES()
 	}
+	handleExitUpdate = () => {
+		this.props.SELECTED_STORE()
+	}
+
 	handleDeletePressed = () => {
 		deleteStore(this.props.selectedStore.id)
 		.then(this.props.asyncFetchStores)
@@ -83,7 +87,7 @@ class StoresContainer extends React.Component {
 							zip={this.props.selectedStore.zip}
 						/>
 						<div className={css(styles.optionsDiv)}>
-								<button onClick={this.handleBackPressed}>back</button>
+								<button onClick={this.handleExitUpdate}>back</button>
 						</div>
 					</div>
 				)
