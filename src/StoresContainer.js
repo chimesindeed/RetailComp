@@ -58,6 +58,11 @@ class StoresContainer extends React.Component {
 				);	
 				case "clickedStore": return (
 					<div>
+						<div className={css(styles.optionsDiv)}>
+							<button onClick={this.handleBackPressed}>back</button>
+							<button onClick={this.handleDeletePressed}>delete</button>
+							<button onClick={this.handleEditPressed}>edit</button>
+						</div>
 						<Store className={css(styles.store)}
 							id={this.props.selectedStore.id}
 							number={this.props.selectedStore.number}
@@ -67,16 +72,14 @@ class StoresContainer extends React.Component {
 							state={this.props.selectedStore.state}
 							zip={this.props.selectedStore.zip}
 						/>
-						<div className={css(styles.optionsDiv)}>
-							<button onClick={this.handleBackPressed}>back</button>
-							<button onClick={this.handleDeletePressed}>delete</button>
-							<button onClick={this.handleEditPressed}>edit</button>
-						</div>
 					</div>
 				)
 
 				case "updateStore": return (
 					<div>
+						<div className={css(styles.optionsDiv)}>
+								<button onClick={this.handleExitUpdate}>back</button>
+						</div>
 						<UpdateStoreForm className={css(styles.updateForm)}
 							id={this.props.selectedStore.id}
 							number={this.props.selectedStore.number}
@@ -86,9 +89,7 @@ class StoresContainer extends React.Component {
 							state={this.props.selectedStore.state}
 							zip={this.props.selectedStore.zip}
 						/>
-						<div className={css(styles.optionsDiv)}>
-								<button onClick={this.handleExitUpdate}>back</button>
-						</div>
+						
 					</div>
 				)
 				default: return("hi")

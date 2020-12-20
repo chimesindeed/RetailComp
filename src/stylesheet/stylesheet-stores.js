@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
 
 	optionsDiv: {
 		display: 'flex',
-		justifyContent: 'center'
+		justifyContent: 'right'
 	},
 
 	storeDivider: {
