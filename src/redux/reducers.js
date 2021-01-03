@@ -1,6 +1,12 @@
 
+const initialState = {	week: 5,
 
-const initialState = {week: 5, stores: [], store: [], toggle: 'allStores'}
+												stores: [], store: [], store_id: null,
+												
+												notes: [],
+
+												toggle: 'allStores'
+											}
 
 export const rootReducer = (state = initialState, action)=> {
 	switch(action.type){
@@ -14,8 +20,10 @@ export const rootReducer = (state = initialState, action)=> {
 		case "ALL_STORES": return (Object.assign({}, state, {toggle: 'allStores'}))
 		case "UPDATE_STORE": return (Object.assign({}, state, {toggle: 'updateStore'}))
 
+		case "SET_STORE_ID": return (Object.assign({}, state, {store_id: action.payload})
+		)
+		
 		default: return state
 	}
-	
-	
+		
 }
