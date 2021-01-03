@@ -4,24 +4,31 @@ import { Link } from 'react-router-dom'
 import { css } from 'aphrodite'
 import { styles } from  './stylesheet/stylesheet-stores.js'
 import Store from './Store'
+import Note from './Note'
 import UpdateStoreForm from './UpdateStoreForm'
 import { asyncFetchStores, asyncFetchStore, ALL_STORES, SELECTED_STORE, UPDATE_STORE } from './redux/actions'
 import { deleteStore } from './adapter.js'
 
 class StoresContainer extends React.Component {
-
+	constructor(props){
+		super(props)
+		this.state = {
+			showNotes: false
+		}
+	}
 	componentDidMount = () => {
 		this.props.asyncFetchStores();
 	}
 
-	selectStore = value => () => {
-		this.props.asyncFetchStore(value);
+	selectStore = store_id => () => {
+		this.props.asyncFetchStore(store_id);
 		this.props.SELECTED_STORE()
 	}
 	
 	handleBackPressed = () => {
 		this.props.asyncFetchStores();
-		this.props.ALL_STORES()
+		this.props.ALL_STORES();
+		this.setState({showNotes: false})
 	}
 	handleExitUpdate = () => {
 		this.props.SELECTED_STORE()
@@ -36,7 +43,8 @@ class StoresContainer extends React.Component {
 		this.props.UPDATE_STORE()
 	}
 
-	handleShowNotes = value =>() => {
+	handleShowNotes = () => {
+		return (this.setState({showNotes: !this.state.showNotes}) )
 
 	}
 		renderStores = () => {
@@ -58,11 +66,11 @@ class StoresContainer extends React.Component {
 						</div>
 							)
 					})
-				);	
+				)	
 				case "clickedStore": return (
 					<div>
 						<div className={css(styles.optionsDiv)}>
-							<button onClick={this.handleBackPressed}>back</button>
+							<button onClick={ this.handleBackPressed}>back</button>
 							<button onClick={this.handleDeletePressed}>delete</button>
 							<button onClick={this.handleEditPressed}>edit</button>
 						</div>
@@ -73,10 +81,32 @@ class StoresContainer extends React.Component {
 							address={this.props.selectedStore.address}
 							city={this.props.selectedStore.city}
 							state={this.props.selectedStore.state}
-							zip={this.props.selectedStore.zip}
+							zip={this.props.selectedStore.zip}	
 						/>
-						<button onClick={this.handleShowNotes(this.props.selectedStore.id)}>Store Notes</button>
-					</div>
+						<button onClick={this.handleShowNotes}>Show Notes</button>
+					
+						{
+							this.state.showNotes 
+								?
+									<div>
+										{
+											this.props.selectedStore.notes.map((note)=>{
+												return (
+													<div key={note.id}>
+														<Note
+															store_id={this.props.selectedStore.id}
+															note_id={note.id}
+															note_body={note.note_body}
+														/>
+													</div>
+												)
+											})
+										}
+									</div>
+								:
+									null
+						}
+						</div>
 				)
 
 				case "updateStore": return (
@@ -96,7 +126,7 @@ class StoresContainer extends React.Component {
 						
 					</div>
 				)
-				default: return("hi")
+				default: return null
 			}
 		}
 
@@ -118,6 +148,7 @@ class StoresContainer extends React.Component {
 
 	const mapStateToProps = (state) => {
 		return ({
+			// allNotes: state.notes,
 			allStores: state.stores,
 			selectedStore: state.store,
 			toggle: state.toggle
