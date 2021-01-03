@@ -3,6 +3,7 @@ import Header from './Header'
 import DiscountsContainer from './DiscountsContainer'
 import StoresContainer from './StoresContainer'
 import CreateStoreForm from './CreateStoreForm'
+import CreateNoteForm from './CreateNoteForm'
 import {Switch, BrowserRouter, Route, Redirect} from 'react-router-dom'
 
 
@@ -19,7 +20,7 @@ const App = (props) => {
     		<Route path= "/discounts" exact component={DiscountsContainer}/>
     		
     		<Route path= "/stores" exact component={StoresContainer}/>
-        
+        <Route path= "/notes/create" exact component={CreateNoteForm}/>
         <Route exact path= "/create">
           <Redirect to = "/stores/create"/>
         </Route>
