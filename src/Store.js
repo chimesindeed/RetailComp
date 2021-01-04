@@ -1,17 +1,24 @@
 import React from 'react'
+import { Card } from 'semantic-ui-react'
+
 
 const Store = (props) => {
+	const address = [ props.city, <br />, 
+									 	props.address, <br />,
+									 	props.state, <br />,
+									 	props.zip
+									]
+	const storeNumber = [	'Store ',
+												props.number
+											]
 	return (
-		<div className= {props.className}>
-			<h2>{props.name}</h2>
-			<h3>Store Number: {props.number}</h3>
-			<h3>Address: {props.address}</h3>
-			<h3>City: {props.city}</h3>
-			<h3>State: {props.state}</h3>
-			<h3>Zip: {props.zip}</h3>
-		</div>
-		
-
-		)
+			<Card
+				style={{marginLeft: 7, marginTop: 5, backgroundColor: 'Cornsilk'}}
+				color='orange'
+				header={props.name}
+				meta={storeNumber}
+				description= {address}
+			/>
+	)
 }
 export default Store

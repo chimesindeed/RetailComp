@@ -1,6 +1,7 @@
 import React from 'react'
 import * as ADAPTER from './adapter.js'
 import { connect } from 'react-redux'
+import { Form } from 'semantic-ui-react'
 import { GET_STORE, SELECTED_STORE } from './redux/actions'
 
 class UpdateStoreForm extends React.Component{
@@ -42,16 +43,21 @@ class UpdateStoreForm extends React.Component{
 	render = () => {
 		return(
 		
-			<div className= {this.props.className}>
-				<form onSubmit={this.handleSubmit} style={{justifyContent: 'left'}}>
-<h2><label>Store Name <input onChange={(e)=>{this.setState({name: e.target.value})}} placeholder={this.props.name} value={this.state.name != null ? this.state.name.toLowerCase() : this.state.name}/></label></h2>
-<h3><label>Store Number <input placeholder={this.props.number} disabled/></label></h3> 
-<h3><label>Store Address <input onChange={(e)=>{this.setState({address: e.target.value})}}placeholder={this.props.address}value={this.state.address}/></label></h3>
-<h3><label>Store City <input onChange={(e)=>{this.setState({city: e.target.value})}}placeholder={this.props.city}value={this.state.city}/></label></h3>
-<h3><label>Store State <input onChange={(e)=>{this.setState({state: e.target.value})}}placeholder={this.props.state}value={this.state.state}/></label></h3>
-<h3><label>Store Zip <input onChange={(e)=>{this.setState({zip: e.target.value})}}placeholder={this.props.zip}value={this.state.zip}/></label></h3>
-					<input type='submit' value='Update Store'/>
-				</form>
+	<div>
+
+<Form onSubmit={this.handleSubmit} style={{justifyContent: 'left', marginLeft: 7}}>
+	<Form.Group>
+		<Form.Input label= 'Store Name' onChange={(e)=>{this.setState({name: e.target.value})}} placeholder={this.props.name} value={ this.state.name !== "" ? this.state.name.toLowerCase() : this.props.name} width={3}/>
+		<Form.Input label= '#' placeholder={this.props.number} disabled width = {1}/> 
+	</Form.Group>
+	<Form.Input label= 'Address' onChange={(e)=>{this.setState({address: e.target.value})}} placeholder={this.props.address} value={ this.state.address !== "" ? this.state.address : this.props.address} width={4}/>
+	<Form.Group>
+		<Form.Input label= 'City'  onChange={(e)=>{this.setState({city: e.target.value})}}placeholder={this.props.city} value={ this.state.city !== "" ? this.state.city : this.props.city} width={2}/>
+		<Form.Input label= 'State' onChange={(e)=>{this.setState({state: e.target.value})}}placeholder={this.props.state} value={ this.state.state !== "" ?this.state.state : this.props.state} width={1}/>
+		<Form.Input label= 'Zip' 	 onChange={(e)=>{this.setState({zip: e.target.value})}}placeholder={this.props.zip} value={ this.state.zip !== "" ? this.state.zip: this.props.zip} width={2}/>
+	</Form.Group>
+	<Form.Button type='submit'>Update</Form.Button>
+</Form>
 			</div>
 			  )
 	}

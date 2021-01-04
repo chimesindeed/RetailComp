@@ -8,6 +8,7 @@ import Note from './Note'
 import UpdateStoreForm from './UpdateStoreForm'
 import { asyncFetchStores, asyncFetchStore, ALL_STORES, SELECTED_STORE, UPDATE_STORE } from './redux/actions'
 import { deleteStore } from './adapter.js'
+import { Button } from 'semantic-ui-react'
 
 class StoresContainer extends React.Component {
 	constructor(props){
@@ -70,9 +71,9 @@ class StoresContainer extends React.Component {
 				case "clickedStore": return (
 					<div>
 						<div className={css(styles.optionsDiv)}>
-							<button onClick={ this.handleBackPressed}>back</button>
-							<button onClick={this.handleDeletePressed}>delete</button>
-							<button onClick={this.handleEditPressed}>edit</button>
+							<Button onClick={ this.handleBackPressed}>back</Button>
+							<Button onClick={this.handleDeletePressed}>delete</Button>
+							<Button onClick={this.handleEditPressed}>edit</Button>
 						</div>
 						<Store className={css(styles.store)}
 							id={this.props.selectedStore.id}
@@ -83,7 +84,7 @@ class StoresContainer extends React.Component {
 							state={this.props.selectedStore.state}
 							zip={this.props.selectedStore.zip}	
 						/>
-						<button onClick={this.handleShowNotes}>Show Notes</button>
+						<Button onClick={this.handleShowNotes}>Show Notes</Button>
 					
 						{
 							this.state.showNotes 
@@ -112,7 +113,7 @@ class StoresContainer extends React.Component {
 				case "updateStore": return (
 					<div>
 						<div className={css(styles.optionsDiv)}>
-								<button onClick={this.handleExitUpdate}>back</button>
+								<Button onClick={this.handleExitUpdate}>back</Button>
 						</div>
 						<UpdateStoreForm className={css(styles.updateForm)}
 							id={this.props.selectedStore.id}
@@ -148,7 +149,6 @@ class StoresContainer extends React.Component {
 
 	const mapStateToProps = (state) => {
 		return ({
-			// allNotes: state.notes,
 			allStores: state.stores,
 			selectedStore: state.store,
 			toggle: state.toggle

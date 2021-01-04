@@ -14,6 +14,7 @@ import {White} from './color-components/DWhite'
 import * as Extras from './color-components/extras/IncomingAndRagout'
 
 class DiscountsContainer extends React.Component {
+
 	setWeek = (dPassed = Util.daysPassed()) => {
 		if(dPassed >=7){
 			// eslint-disable-next-line no-unused-expressions
