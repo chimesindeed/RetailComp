@@ -6,8 +6,9 @@ class StoresController < ApplicationController
 	end
 
 	def show
-		store = Store.find(params[:id])
 
+		store = Store.find_by({:id=>params[:id]})
+	
 		render json: store
 	end
 
@@ -19,14 +20,14 @@ class StoresController < ApplicationController
 
 	def update
 		# binding.pry
-		store = Store.find(params[:id])
+		store = Store.find_by({:id=>params[:id]})
 		store.update(store_params)
 
 		render json: store
 	end
 
 	def destroy
-		store = Store.find(params[:id]).destroy
+		store = Store.find_by({:id=>params[:id]}).destroy
 	end
 	def store_params
 		params.require(:store).permit(:name, :number, :address, :city, :state, :zip)
